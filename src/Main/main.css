@@ -1,0 +1,96 @@
+.logo{
+    background-color: #4d1b80;
+}
+.logo_text{
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+.form_search{
+    display: inline;
+    max-width: 50px;
+}
+.form_search:focus, .form_search:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.search_block{
+    display: flex;
+    border-radius: 8px;
+    background-color: rgba(231, 213, 240, 0.7);
+    width: 500px;
+    margin-left: 32%;
+    margin-top: 1.5%;
+    padding: 0.2%;
+    justify-content: center
+}
+.nav_search{
+    font-size: 130%;
+}
+.main_block{
+    margin-top: 1%;
+    margin-left: 15%;
+    width: 1000px;
+    height: 900px;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 1%;
+
+}
+.info_person{
+    display: flex;
+    margin-top: 2%;
+}
+.info_person_1{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.photo{
+    width: 250px;
+    height: 250px;
+    margin-left: 3%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+
+}
+.info{
+    width: 620px;
+    height: 250px;
+    margin-left: 4%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}
+.friends{
+    width: 250px;
+    height: 250px;
+    margin-left: 3%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}
+.groups{
+    width: 250px;
+    height: 250px;
+    margin-left: 3%;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}
+.main_info{
+    display: flex;
+}
+.news{
+    margin-left: 5%;
+    margin-top: 2%;
+}
+.create_news{
+    width: 620px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}
+.my_news{
+    width: 620px;
+    height: 400px;
+    margin-top: 4%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}

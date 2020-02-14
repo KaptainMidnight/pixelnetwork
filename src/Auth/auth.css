@@ -1,0 +1,80 @@
+.auth{
+    border-radius: 8px;
+    padding: 20px;
+    height: 30%;
+    width: 100%;
+    margin-top: 8%;
+    background-color: #e0c2ff;
+}
+.sign{
+    border-radius: 8px;
+    padding: 20px;
+    height: 58%;
+    width: 100%;
+    margin-top: 5%;
+    background-color: #e0c2ff;
+}
+.sign_box{
+    display: flex;
+}
+
+.name{
+    margin-left: 10px;
+}
+.box{
+    display: flex;
+}
+.packman{
+    max-width: 55%;
+    max-height: 55%;
+    margin-top: 3%;
+    margin-left: 7%;
+}
+.logo{
+    background-color: #4d1b80;
+}
+.logo_box{
+    height: 100%;
+    flex: 0.95;
+}
+.authorization_box{
+    height: 100%;
+    width: 25%;
+}
+.logo_text{
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: row;
+}
+.checkbox_button{
+    margin-left: 5%;
+}
+.error_sign{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    font-size: 100%;
+    background-color: rgba(255, 74, 74, 1);;
+}
+.image{
+    width: 25px;
+    height: 25px;
+    margin-right: 2%;
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    -ms-interpolation-mode: nearest-neighbor;  /* IE */
+    image-rendering: crisp-edges; /* Стандартное свойство */;
+}
+.successful_auth{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    font-size: 95%;
+    background-color: rgba(50, 255, 23, 1);
+}
