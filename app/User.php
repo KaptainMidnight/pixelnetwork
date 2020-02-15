@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Feed;
 use App\Models\Friend;
 use Hootlex\Friendships\Traits\Friendable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

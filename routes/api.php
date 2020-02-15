@@ -27,7 +27,13 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'user'], function() {
 });
 
 Route::group(['prefix' => 'friends', 'middleware' => 'auth:api'], function() {
-    Route::get('send.request', 'FriendController@send');
-    Route::get('accept.request', 'FriendController@accept');
-    Route::get('pending.list', 'FriendController@getAllFriendships');
+    Route::post('send.request', 'FriendController@send');
+    Route::post('accept.request', 'FriendController@accept');
+    Route::post('pending.list', 'FriendController@getAllFriendships');
+    Route::post('unfriend.user', 'FriendController@unFriend');
+});
+
+Route::group(['middleware' => 'auth:api', 'prefix' => 'feed'], function() {
+    Route::post('create', 'FeedController@create');
+    Route::get('list', 'FeedController@showAll');
 });
