@@ -72,10 +72,24 @@ class Auth extends React.Component {
             fd.append("password_confirmation", this.state.password_confirmation);
             axios.post("https://api-pixelnetwork.truemachine.ru/api/auth/signup", fd)
                 .then(response => {
-                    this.setState({
-                       successful: true
-                    });
-                    console.log(response)
+                    const res = response.data;
+                    const keys = Object.keys(res);
+                    console.log("---", res);
+                    if(res["message"] !== "Successfully register!"){
+                        for(let i = 0, l = keys.length; i < l; i++){
+                            const doc = document.getElementById(`${keys[i]}`);
+                            doc.style.border = 'solid 2px #fa6666'
+                        }
+                        if(res["password"][0] === "The password field is required."){
+                            const doc = document.getElementById("password_rep");
+                            doc.style.border = 'solid 2px #fa6666'
+                        }
+                    }
+                    else{
+                        this.setState({
+                                successful: true
+                        });
+                    }
                 })
                 .catch(error => {
                     console.log(error.response);
@@ -110,13 +124,13 @@ class Auth extends React.Component {
                         <div className={'auth'}>
                             <form>
                                 <Form.Group controlId="formBasicEmail">
-                                    <Form.Control type="email" placeholder="Логин" onChange={this.handleChangeEmail} style={{backgroundColor: '#eddefc'}}/>
+                                    <Form.Control type="email" placeholder="Логин" className={"inp_1"} onChange={this.handleChangeEmail} style={{backgroundColor: '#eddefc'}}/>
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPassword">
-                                    <Form.Control type="password" placeholder="Пароль" onChange={this.handleChangePassword} style={{backgroundColor: '#eddefc'}}/>
+                                    <Form.Control type="password" placeholder="Пароль" className={"inp_1"} onChange={this.handleChangePassword} style={{backgroundColor: '#eddefc'}}/>
                                 </Form.Group>
                                 <div className={'checkbox'}>
-                                    <Button variant="primary" type="submit" className={"button_sign"} onClick={this.Sign}>
+                                    <Button variant="primary" type="submit" className={"btn_1"} onClick={this.Sign}>
                                         Войти
                                     </Button>
                                     <Form.Group controlId="formBasicChecbox" className={"checkbox_button"}>
@@ -131,26 +145,37 @@ class Auth extends React.Component {
                                 <hr/>
                                 <Form.Group controlId="formBasicEmail">
                                     <div className={'sign_box'}>
-                                        <Form.Control  placeholder="Имя"  style={{backgroundColor: '#eddefc'}} onChange={this.handelChangeName}/>
-                                        <Form.Control  className={'name'} placeholder="Фамилия" style={{backgroundColor: '#eddefc'}} onChange={this.handelChangeSurname}/>
+                                        <Form.Control  placeholder="Имя"  id={"name"} className={"inp_auth"} style={{backgroundColor: '#eddefc'}} onChange={this.handelChangeName}/>
+                                        <Form.Control  id={"surname"} className={'name inp_auth'} placeholder="Фамилия" style={{backgroundColor: '#eddefc'}} onChange={this.handelChangeSurname}/>
                                     </div>
                                 </Form.Group>
                                 <Form.Group controlId="formBasicEmail">
-                                    <Form.Control type="email" placeholder="Номер телефона или почта"  style={{backgroundColor: '#eddefc'}} onChange={this.handleChangeEmail}/>
+                                    <Form.Control type="email" id={"email"} placeholder="Номер телефона или почта"  className={"inp_auth"} style={{backgroundColor: '#eddefc'}} onChange={this.handleChangeEmail}/>
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPassword">
-                                    <Form.Control type="password" placeholder="Пароль" style={{backgroundColor: '#eddefc'}} onChange={this.handleChangePassword}/>
+                                    <Form.Control type="password" id={"password"} placeholder="Пароль" className={"inp_auth"} style={{backgroundColor: '#eddefc'}} onChange={this.handleChangePassword}/>
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPassword">
-                                    <Form.Control  type="password" placeholder="Повторите пароль" style={{backgroundColor: '#eddefc'}}  onChange={this.handelChangePassword_confirmation}/>
+                                    <Form.Control  type="password" id={"password_rep"}  placeholder="Повторите пароль" className={"inp_auth"} style={{backgroundColor: '#eddefc'}}  onChange={this.handelChangePassword_confirmation}/>
                                 </Form.Group>
-                                <Button variant="success " className={"d-block mx-auto"} type="submit" onClick={this.Auth}>
+                                <Button variant="success " className={"d-block mx-auto btn_1"} type="submit" onClick={this.Auth}>
                                     Зарегистрироваться
                                 </Button>
                             </form>
                         </div>
                     </div>
                 </div>
+                <Toast className={"successful_auth btn_1"} show={this.state.successful} onClose={this.Successful_auth}>
+                    <Toast.Header>
+                        <img
+                            src={require("../image/logo.png")}
+                            className="image"
+                            alt=""
+                        />
+                        <strong className="mr-auto">PixelNetwork</strong>
+                    </Toast.Header>
+                    <Toast.Body>Отлично! Вы успешно зарегистрировались</Toast.Body>
+                </Toast>
                 <Toast className={"error_sign"} show={this.state.error} onClose={this.Error_sign}>
                     <Toast.Header>
                         <img
@@ -161,17 +186,6 @@ class Auth extends React.Component {
                         <strong className="mr-auto">PixelNetwork</strong>
                     </Toast.Header>
                     <Toast.Body>Не удалось выполнить вход</Toast.Body>
-                </Toast>
-                <Toast className={"successful_auth"} show={this.state.successful} onClose={this.Successful_auth}>
-                    <Toast.Header>
-                        <img
-                            src={require("../image/logo.png")}
-                            className="image"
-                            alt=""
-                        />
-                        <strong className="mr-auto">PixelNetwork</strong>
-                    </Toast.Header>
-                    <Toast.Body>Отлично! Вы успешно зарегистрировались</Toast.Body>
                 </Toast>
             </div>
         )

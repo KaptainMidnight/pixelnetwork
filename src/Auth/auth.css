@@ -78,3 +78,18 @@
     font-size: 95%;
     background-color: rgba(50, 255, 23, 1);
 }
+.btn_1:focus, .btn_1:active {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+.inp_1:focus, .inp_1:active {
+    box-shadow: none !important;
+    border: solid 1px #eddefc;
+}
+.inp_auth:focus, .inp_auth:active {
+    box-shadow: none !important;
+    border: solid 2px #fa6666;
+}
+.error_auth{
+    border: solid 2px #fa6666;
+}

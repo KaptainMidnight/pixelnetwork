@@ -1,15 +1,35 @@
 import React from 'react'
 import {Navbar, Button,  Nav} from "react-bootstrap";
 import './main.css'
+import axios from 'axios'
 class Main extends React.Component{
-    state = {
+    componentWillMount(){
+        const config = {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        };
+        axios.post('https://api-pixelnetwork.truemachine.ru/api/auth/me', undefined, config)
+            .then(response => {
+                const res = response.data;
+                this.setState({
+                    name: res["name"],
+                    surname: res["surname"]
+                });
+            })
+            .catch(error => {
+                console.log(error.response)
+            })
 
+    }
+    state = {
+        name: '',
+        surname: '',
     };
     Exit = () =>{
-        localStorage.clear();
+        /*localStorage.clear();
         document.cookie = 'token=0';
         document.cookie = 'set=false';
-        console.log(document.cookie)
+        console.log(document.cookie)*/
+        console.log("---", this.state.name)
     };
     render(){
         return(
@@ -35,15 +55,13 @@ class Main extends React.Component{
 
                         </div>
                         <div className={"info"}>
-
+                            <h1>{this.state.name}</h1>
+                            <h1>{this.state.surname}</h1>
                         </div>
                     </div>
                     <div className={"main_info"}>
                         <div className={"info_person_1"}>
                             <div className={"friends"}>
-
-                            </div>
-                            <div className={"groups"}>
 
                             </div>
                         </div>
