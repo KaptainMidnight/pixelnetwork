@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Friend;
-use App\User;
-use Hootlex\Friendships\Traits\Friendable;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FriendController extends Controller

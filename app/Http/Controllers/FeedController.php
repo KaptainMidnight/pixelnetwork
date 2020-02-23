@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feed;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Swagger\Annotations as SWG;
 
 class FeedController extends Controller
 {
-    /*
-     *
-     */
     public function create(Request $request)
     {
         $validatorErrors = Validator::make($request->all(), [
@@ -45,6 +40,7 @@ class FeedController extends Controller
         {
             $data[] = $a;
         }
+
         return response()->json($data);
     }
 }

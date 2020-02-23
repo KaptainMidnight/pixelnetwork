@@ -24,6 +24,7 @@ Route::group(['prefix' => 'auth'], function() {
 Route::group(['middleware' => 'auth:api', 'prefix' => 'user'], function() {
     Route::post('get/{id}', 'UserController@get');
     Route::post('change.link', 'UserController@changeLink');
+    Route::post('change.password', 'UserController@changePassword');
 });
 
 Route::group(['prefix' => 'friends', 'middleware' => 'auth:api'], function() {

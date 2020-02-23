@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Models\Feed;
 use App\Models\Friend;
@@ -32,7 +32,15 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'is_admin',
+        'email',
+        'short_link',
+        'email_verified_at',
     ];
 
     /**
@@ -62,5 +70,16 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     *
+     * Статья
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function feed()
+    {
+        return $this->hasMany(Feed::class);
     }
 }
