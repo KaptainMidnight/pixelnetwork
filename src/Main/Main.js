@@ -18,13 +18,46 @@ class Main extends React.Component {
       })
       .catch(error => {
         console.log(error.response)
-      })
-
+      });
   }
 
   state = {
     name: '',
     surname: '',
+    defaultImageUrl: 'https://vk.com/images/camera_200.png?ava=1',
+    friends: [
+      {
+        id: 1,
+        name: "Егор",
+        surname: "Майоров",
+        img: ''
+      },
+      {
+        id: 2,
+        name: "Сергей",
+        surname: "Герасимов",
+        img: ''
+      },
+      {
+        id: 3,
+        name: "Данил",
+        surname: "Абанин",
+        img: ''
+      },
+      {
+        id: 3,
+        name: "Данил",
+        surname: "Абанин",
+        img: ''
+      },
+      {
+        id: 3,
+        name: "Данил",
+        surname: "Абанин",
+        img: ''
+      }
+    ],
+    isLoaded: true,
   };
   Exit = () => {
     /*localStorage.clear();
@@ -55,7 +88,7 @@ class Main extends React.Component {
         <div className={"main_block"}>
           <div className={"info_person"}>
             <div className={"photo"}>
-
+              <img src={this.state.defaultImageUrl} alt=""/>
             </div>
             <div className={"info"}>
               <h4 className={"name"}>{this.state.name} {this.state.surname}</h4>
@@ -64,7 +97,15 @@ class Main extends React.Component {
           <div className={"main_info"}>
             <div className={"info_person_1"}>
               <div className={"friends"}>
-
+                {this.state.isLoaded ? this.state.friends.map((friend) =>
+                  <div className={"friend"}>
+                    <img
+                      src={friend.img === '' ? this.state.defaultImageUrl : friend.img}
+                      alt=""
+                    />
+                    <h6>{friend.name}</h6>
+                  </div>
+                ) : ''}
               </div>
             </div>
             <div className={"news"}>
