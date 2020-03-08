@@ -1,84 +1,87 @@
 import React from 'react'
-import {Navbar, Button,  Nav} from "react-bootstrap";
+import {Navbar, Button, Nav} from "react-bootstrap";
 import './main.css'
 import axios from 'axios'
-class Main extends React.Component{
-    componentWillMount(){
-        const config = {
-            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-        };
-        axios.post('https://api-pixelnetwork.truemachine.ru/api/auth/me', undefined, config)
-            .then(response => {
-                const res = response.data;
-                this.setState({
-                    name: res["name"],
-                    surname: res["surname"]
-                });
-            })
-            .catch(error => {
-                console.log(error.response)
-            })
 
-    }
-    state = {
-        name: '',
-        surname: '',
+class Main extends React.Component {
+  componentWillMount() {
+    const config = {
+      headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
     };
-    Exit = () =>{
-        /*localStorage.clear();
-        document.cookie = 'token=0';
-        document.cookie = 'set=false';
-        console.log(document.cookie)*/
-        console.log("---", this.state.name)
-    };
-    render(){
-        return(
-            <div>
-                <div>
-                    <Navbar  expand="lg" variant="dark" className={'logo'} style={{display: "flex"}}>
-                        <Navbar.Brand href="#home" style={{flex: 0.9}}>
-                            <text className={'logo_text'}>PixelNetwork</text>
-                        </Navbar.Brand>
-                        <Button variant="outline-light mr-lg-2" style={{flex: 0.08}}>Профиль</Button>
-                        <Button variant="outline-light" onClick={this.Exit}>Выйти</Button>
-                    </Navbar>
-                </div>
-                <div className={"search_block"}>
-                    <Nav.Link href="/home" className={'nav_search'}>Новости</Nav.Link>
-                    <Nav.Link href="/home"  className={'nav_search'}>Сообщения</Nav.Link>
-                    <Nav.Link href="/home"  className={'nav_search'}>Друзья</Nav.Link>
-                    <Nav.Link href="/home"  className={'nav_search'}>Фото</Nav.Link>
-                </div>
-                <div className={"main_block"}>
-                    <div className={"info_person"}>
-                        <div className={"photo"}>
+    axios.post('https://api-pixelnetwork.truemachine.ru/api/auth/me', undefined, config)
+      .then(response => {
+        const res = response.data;
+        this.setState({
+          name: res["name"],
+          surname: res["surname"]
+        });
+      })
+      .catch(error => {
+        console.log(error.response)
+      })
 
-                        </div>
-                        <div className={"info"}>
-                            <h1>{this.state.name}</h1>
-                            <h1>{this.state.surname}</h1>
-                        </div>
-                    </div>
-                    <div className={"main_info"}>
-                        <div className={"info_person_1"}>
-                            <div className={"friends"}>
+  }
 
-                            </div>
-                        </div>
-                        <div className={"news"}>
-                            <div className={"create_news"}>
+  state = {
+    name: '',
+    surname: '',
+  };
+  Exit = () => {
+    /*localStorage.clear();
+    document.cookie = 'token=0';
+    document.cookie = 'set=false';
+    console.log(document.cookie)*/
+    console.log("---", this.state.name)
+  };
 
-                            </div>
-                            <div className={"my_news"}>
+  render() {
+    return (
+      <div>
+        <div>
+          <Navbar expand="lg" variant="dark" className={'logo'} style={{display: "flex"}}>
+            <Navbar.Brand href="#home" style={{flex: 0.9}}>
+              <text className={'logo_text'}>PixelNetwork</text>
+            </Navbar.Brand>
+            <Button variant="outline-light mr-lg-2" style={{flex: 0.08}}>Профиль</Button>
+            <Button variant="outline-light" onClick={this.Exit}>Выйти</Button>
+          </Navbar>
+        </div>
+        <div className={"search_block"}>
+          <Nav.Link href="/home" className={'nav_search'}>Новости</Nav.Link>
+          <Nav.Link href="/home" className={'nav_search'}>Сообщения</Nav.Link>
+          <Nav.Link href="/home" className={'nav_search'}>Друзья</Nav.Link>
+          <Nav.Link href="/home" className={'nav_search'}>Фото</Nav.Link>
+        </div>
+        <div className={"main_block"}>
+          <div className={"info_person"}>
+            <div className={"photo"}>
 
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
             </div>
-        )
-    }
+            <div className={"info"}>
+              <h4 className={"name"}>{this.state.name} {this.state.surname}</h4>
+            </div>
+          </div>
+          <div className={"main_info"}>
+            <div className={"info_person_1"}>
+              <div className={"friends"}>
+
+              </div>
+            </div>
+            <div className={"news"}>
+              <div className={"create_news"}>
+
+              </div>
+              <div className={"my_news"}>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    )
+  }
 }
+
 export default Main;
