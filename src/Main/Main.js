@@ -5,6 +5,19 @@ import axios from 'axios'
 
 class Main extends React.Component {
   componentWillMount() {
+    let params = window
+        .location
+        .search
+        .replace('?','')
+        .split('&')
+        .reduce(
+            function(p,e){
+              let a = e.split('=');
+              p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+              return p;
+            },
+            {}
+        );
     const config = {
       headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
     };

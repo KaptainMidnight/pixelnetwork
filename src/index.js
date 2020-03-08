@@ -11,7 +11,7 @@ ReactDOM.render(
   <Router history={history}>
     <Switch>
       <Route path={"/login/"} component={Auth}/>
-      <PrivateRoute path={"/main/"} component={Main}/>
+      <PrivateRoute path={"/"} component={Main}/>
       <Redirect exact from='/' to='/login'/>
     </Switch>
   </Router>,

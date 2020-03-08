@@ -151,7 +151,7 @@ class Auth extends React.Component {
                   <div className={'sign_box'}>
                     <Form.Control placeholder="Имя" id={"name"} className={"inp_auth"}
                                   style={{backgroundColor: '#eddefc'}} onChange={this.handelChangeName}/>
-                    <Form.Control id={"surname"} className={'name inp_auth'} placeholder="Фамилия"
+                    <Form.Control id={"surname"} className={'sur_auth inp_auth'} placeholder="Фамилия"
                                   style={{backgroundColor: '#eddefc'}} onChange={this.handelChangeSurname}/>
                   </div>
                 </Form.Group>
