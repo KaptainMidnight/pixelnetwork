@@ -6,14 +6,12 @@
 
 #### Авторизация
    - POST - /api/auth/login - **авторизация**
-   <br>
    ```
     email: string
     password: string
     remember_me: optional, boolean, default: false
    ```
    - POST - /api/auth/register - **регистрация пользователя**
-   <br>
    ```
     name: string
     surname: string
@@ -22,11 +20,7 @@
     password_confirmation: string
    ```
    - POST - /api/auth/logout - **выход из аккаунта**
-   <br>
-   
    - POST - /api/auth/me - **получение данных от аккаунта по токену**
-   <br>
-   
    - POST - /api/auth/refresh - **обновление токена**
 
 
