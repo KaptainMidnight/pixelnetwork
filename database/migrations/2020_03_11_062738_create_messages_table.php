@@ -22,8 +22,8 @@ class CreateMessagesTable extends Migration
             $table->string('attachment')->nullable();
             $table->timestamps();
 
-            $table->foreign('from_id')->references('id')->on('users');
-            $table->foreign('to_id')->references('id')->on('users');
+//            $table->foreign('from_id')->references('id')->on('users');
+//            $table->foreign('to_id')->references('id')->on('users');
         });
     }
 
