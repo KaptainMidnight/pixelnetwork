@@ -20,8 +20,6 @@ class CreateFeedsTable extends Migration
             $table->integer('author_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('author_id')->references('id')->on('users');
         });
     }
 
