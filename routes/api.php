@@ -34,11 +34,6 @@ Route::group(['prefix' => 'friends', 'middleware' => 'auth:api'], function() {
     Route::post('unfriend.user', 'FriendController@unFriend');
 });
 
-Route::group(['middleware' => 'auth:api', 'prefix' => 'feed'], function() {
-    Route::post('create', 'FeedController@create');
-    Route::get('list', 'FeedController@showAll');
-});
-
 Route::group(['prefix' => 'messages'], function() {
     Route::get('get', 'MessageController@getUpdates');
     Route::get('send.message', 'MessageController@sendMessage');
