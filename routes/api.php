@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'cors'], function() {
    Route::group(['prefix' => 'auth'], function() {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
@@ -39,5 +38,4 @@ Route::group(['prefix' => 'messages'], function() {
     Route::get('get', 'MessageController@getUpdates');
     Route::get('send.message', 'MessageController@sendMessage');
     Route::get('get.dialogs', 'MessageController@getDialogs');
-}); 
 });
