@@ -169,6 +169,7 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Hootlex\Friendships\FriendshipsServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "barryvdh/laravel-cors": "^1.0",
         "barryvdh/laravel-debugbar": "dev-master",
         "barryvdh/laravel-ide-helper": "^2.6",
         "fideloper/proxy": "^4.0",
