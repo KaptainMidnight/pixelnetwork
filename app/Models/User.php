@@ -17,6 +17,11 @@ class User extends Authenticatable implements JWTSubject
     use SoftDeletes;
     use Friendable;
 
+    public function __construct()
+    {
+        
+    }
+
     /**
      * The attributes that are mass assignable.
      *
